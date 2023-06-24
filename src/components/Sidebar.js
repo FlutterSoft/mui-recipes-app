@@ -34,7 +34,13 @@ function Sidebar(props) {
       <Divider />
       <List>
         {mainNavbarItems.map((item, index) => (
-          <ListItem key={item.id} disablePadding onClick={()=>nav(item.route)} >
+          <ListItem 
+            key={item.id} 
+            disablePadding 
+            onClick={()=> {
+              handleDrawerToggle()
+              nav(item.route)}
+            }>
             <ListItemButton>
               <ListItemIcon>
                 {item.icon}
@@ -56,8 +62,8 @@ function Sidebar(props) {
       <AppBar
         position="fixed"
         sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },
+          width: { md: `calc(100% - ${drawerWidth}px)` },
+          ml: { md: `${drawerWidth}px` },
         }}
       >
         <Toolbar>
@@ -66,7 +72,7 @@ function Sidebar(props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ mr: 2, display: { md: 'none' } }}
           >
             <MenuIcon />
           </IconButton>
@@ -83,10 +89,11 @@ function Sidebar(props) {
       </AppBar>
       <Box
         component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+        sx={{ width: { md: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+        {/* Mobile drawer */}
         <Drawer
           container={container}
           variant="temporary"
@@ -96,16 +103,17 @@ function Sidebar(props) {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: 'block', sm: 'none' },
+            display: { xs: 'block', sm: 'block', md: 'none' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
           }}
         >
           {drawer}
         </Drawer>
+        {/* Desktop drawer */}
         <Drawer
           variant="permanent"
           sx={{
-            display: { xs: 'none', sm: 'block' },
+            display: { xs: 'none', sm: 'none', md: 'block' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
           }}
           open

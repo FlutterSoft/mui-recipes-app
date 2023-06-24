@@ -1,4 +1,4 @@
-import { Box, Button, Typography, Container, ListItemText, ListItem, List, Link, Stack } from "@mui/material";
+import { Box, Button, Typography, Container, ListItemText, ListItem, List, Link, Stack, IconButton } from "@mui/material";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState, useContext } from 'react'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -7,6 +7,10 @@ import CardContent from '@mui/material/CardContent';
 import { icons } from '../consts/icons'
 import PopupMenu from './PopupMenu';
 import { RecipesContext } from "../App";
+import EditIcon from '@mui/icons-material/Edit';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import {Divider} from "@mui/material";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function Recipe() {
     const { id: idParam } = useParams()
@@ -46,9 +50,17 @@ export default function Recipe() {
 
     const renderedRecommendations = recommendations.map(rec => {
         return (
-            <ListItem key={rec.id}>
-                <ListItemText primary={rec.body} />
-            </ListItem>
+            <Box>
+                <Stack direction="row" alignItems="center" justifyContent={"space-between"}>
+                    <ListItem key={rec.id}>
+                        <ListItemText primary={rec.body} />
+                    </ListItem>
+                    <IconButton color="primary">
+                            <DeleteIcon />
+                    </IconButton>
+                </Stack>
+                <Divider/>
+            </Box>
         )
     })
 
@@ -67,9 +79,15 @@ export default function Recipe() {
             <Box sx={{ mb: 2 }}>
                 <Stack direction="row" justifyContent="space-between"
                     alignItems="center">
-                    <Typography component="h2" variant="h4" >
+                        <Stack direction="row" alignItems="center" justifyContent="space-between" >
+                        <Typography component="h2" variant="h4" >
                         {recipe.title}
                     </Typography>
+                        <IconButton color="primary">
+                            <EditIcon />
+                        </IconButton>
+                    </Stack>
+
                     <Stack direction="column" justifyContent="center" alignItems="center">
                         <PopupMenu recipe={recipe} icon={icons[recipe.status]} />
                         <Typography variant="caption">
@@ -78,15 +96,26 @@ export default function Recipe() {
 
                     </Stack>
                 </Stack>
-                <Link href={recipe.link} target="_blank" underline="hover" sx={{ ml: 0.3 }}>
-                    Link to recipe
-                </Link>
+                <Stack direction="row" alignItems="center" >
+                    <Link href={recipe.link} target="_blank" underline="hover" sx={{ ml: 0.3 }}>
+                        Link to recipe
+                    </Link>
+                    <IconButton color="primary">
+                        <EditIcon />
+                    </IconButton>
+                </Stack>
+
             </Box>
             <Card>
                 <CardContent>
-                    <Typography variant="h6">
-                        Recommendations:
-                    </Typography>
+                    <Stack direction="row" alignItems="center" justifyContent="space-between" >
+                        <Typography variant="h6">
+                            Recommendations:
+                        </Typography>
+                        <IconButton color="primary">
+                            <AddBoxIcon />
+                        </IconButton>
+                    </Stack>
                     <List >
                         {renderedRecommendations}
                     </List>

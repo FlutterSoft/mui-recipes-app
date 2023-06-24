@@ -5,14 +5,14 @@
       "title": "Chocolate Cake",
       "link": "https://www.recipetineats.com/chocolate-cake/",
       "type": "Treats",
-      "status": "favourite"
+      "status": "unused"
     },
     {
       "id": 2,
       "title": "Carrot Cake",
       "link": "https://www.inspiredtaste.net/25753/carrot-cake-recipe/",
       "type": "Treats",
-      "status": "failed"
+      "status": "unused"
     },
     {
       "id": 3,
@@ -32,7 +32,13 @@
       "id": 2,
       "body": "Use 20g salt instead of 5g",
       "recipeId": 3
+    },
+    {
+      "id": 3,
+      "body": "Use 50g butter rather than 30g",
+      "recipeId": 1
     }
+    
   ],
   "profile": {
     "name": "typicode"
