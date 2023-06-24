@@ -4,18 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Comp from './components/Comp'
 import AllRecipesPage from './pages/AllRecipesPage';
 import RecipesToTryPage from './pages/RecipesToTryPage';
 import FavouriteRecipesPage from './pages/FavouriteRecipesPage';
 import FailedRecipesPage from './pages/FailedRecipesPage';
 import RecipesToReattemptPage from './pages/RecipesToReattemptPage';
+import Recipe from './components/Recipe';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App/>}>
+        <Route path="/recipes/:id" element={<Recipe />}/>
         <Route path="/all-recipes" element={<AllRecipesPage />}/>
         <Route path="/recipes-to-try" element={<RecipesToTryPage />}/>
         <Route path="/favourites" element={<FavouriteRecipesPage />}/>

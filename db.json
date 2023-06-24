@@ -1,0 +1,40 @@
+{
+  "recipes": [
+    {
+      "id": 1,
+      "title": "Chocolate Cake",
+      "link": "https://www.recipetineats.com/chocolate-cake/",
+      "type": "Treats",
+      "status": "favourite"
+    },
+    {
+      "id": 2,
+      "title": "Carrot Cake",
+      "link": "https://www.inspiredtaste.net/25753/carrot-cake-recipe/",
+      "type": "Treats",
+      "status": "failed"
+    },
+    {
+      "id": 3,
+      "title": "Chili",
+      "link": "https://www.inspiredtaste.net/51561/homemade-chili/",
+      "type": "Dinner",
+      "status": "favourite"
+    }
+  ],
+  "recommendations": [
+    {
+      "id": 1,
+      "body": "Use 250g chocolate instead of 200g",
+      "recipeId": 1
+    },
+    {
+      "id": 2,
+      "body": "Use 20g salt instead of 5g",
+      "recipeId": 3
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
