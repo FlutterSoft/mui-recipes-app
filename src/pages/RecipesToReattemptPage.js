@@ -6,32 +6,14 @@ import { RecipesContext } from "../App";
 export default function RecipesToReattemptPage(){
   const {recipes, setRecipes} = useContext(RecipesContext)
 
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //       try {
-    //         const response = await fetch("http://localhost:3004/recipes?status=reattempt")
-    //         if (response.ok) {
-    //           const recipeData = await response.json()
-    //           setRecipes(recipeData)
-    //         }
-    //         else {
-    //           console.log(`Error fetching recipes: ${response.status}`)
-    //         }
-    //       }
-    //       catch (error) {
-    //         console.log('Error fetching recipes:', error)
-    //       }
-    //     }
-    //     fetchData()
-    //   }, [])
-
+  const recipesFiltered = recipes.filter(recipe => recipe.status === "reattempt")
 
     return(
         <Container>
             <Typography variant="h4">
                 Recipes To Reattempt
             </Typography>
-            <RecipesList filter={true} filterBy='reattempt' />
+            <RecipesList recipes={recipesFiltered}/>
         </Container>
     )
 }

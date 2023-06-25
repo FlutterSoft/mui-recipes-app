@@ -1,6 +1,6 @@
 import { Typography, Container, Box } from "@mui/material";
 import RecipesList from "../components/RecipesList";
-import { useState, useEffect, useContext } from 'react'
+import { useContext } from 'react'
 import { RecipesContext } from '../App'
 
 export default function AllRecipesPage(){
@@ -12,7 +12,7 @@ export default function AllRecipesPage(){
             <Typography variant="h4">
                 All Recipes
             </Typography>
-            <RecipesList filter={false} />
+            <RecipesList recipes={recipes} />
         </Container>
     )
 }

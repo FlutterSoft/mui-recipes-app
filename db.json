@@ -2,10 +2,10 @@
   "recipes": [
     {
       "id": 1,
-      "title": "Chocolate Cake",
+      "title": "Chocolate Peanut Butter Mud Yum Cake",
       "link": "https://www.recipetineats.com/chocolate-cake/",
       "type": "Treats",
-      "status": "unused"
+      "status": "favourite"
     },
     {
       "id": 2,
@@ -19,26 +19,30 @@
       "title": "Chili",
       "link": "https://www.inspiredtaste.net/51561/homemade-chili/",
       "type": "Dinner",
-      "status": "favourite"
+      "status": "unused"
     }
   ],
   "recommendations": [
     {
-      "id": 1,
-      "body": "Use 250g chocolate instead of 200g",
-      "recipeId": 1
-    },
-    {
       "id": 2,
-      "body": "Use 20g salt instead of 5g",
-      "recipeId": 3
+      "body": "some comment 2",
+      "recipeId": 1
     },
     {
-      "id": 3,
-      "body": "Use 50g butter rather than 30g",
-      "recipeId": 1
+      "body": "add more chocolate",
+      "recipeId": "1",
+      "id": 6
+    },
+    {
+      "body": "more sugar!",
+      "recipeId": "1",
+      "id": 7
+    },
+    {
+      "body": "more peanut butter :) ",
+      "recipeId": "1",
+      "id": 9
     }
-    
   ],
   "profile": {
     "name": "typicode"

@@ -5,33 +5,15 @@ import { RecipesContext } from '../App'
 
 export default function RecipesToTryPage(){
   const {recipes, setRecipes} = useContext(RecipesContext)
-    
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //       try {
-    //         const response = await fetch("http://localhost:3004/recipes?status=unused")
-    //         if (response.ok) {
-    //           const recipeData = await response.json()
-    //           setRecipes(recipeData)
-    //         }
-    //         else {
-    //           console.log(`Error fetching recipes: ${response.status}`)
-    //         }
-    //       }
-    //       catch (error) {
-    //         console.log('Error fetching recipes:', error)
-    //       }
-    //     }
-    //     fetchData()
-    //   }, [])
 
+  const recipesFiltered = recipes.filter(recipe => recipe.status === "unused")
 
     return(
         <Container>
             <Typography variant="h4">
                 Recipes To Try
             </Typography>
-            <RecipesList filter={true} filterBy='unused' />
+            <RecipesList recipes={recipesFiltered} />
         </Container>
     )
 }

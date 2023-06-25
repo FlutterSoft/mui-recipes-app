@@ -1,5 +1,3 @@
-import { useEffect, useState, useContext } from 'react'
-import Recipe from './Recipe'
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -12,30 +10,16 @@ import { useNavigate } from 'react-router-dom';
 import { Typography, Link } from '@mui/material';
 import { icons } from '../consts/icons'
 import PopupMenu from './PopupMenu';
-import { RecipesContext } from '../App';
 
-export default function RecipesList({filter, filterBy}) {
-  const { recipes, setRecipes } = useContext(RecipesContext)
-
+export default function RecipesList({recipes}) {
   const navigate = useNavigate()
 
   const handleStatusChange = (e) => {
     e.stopPropagation()
-    console.log('hi')
-  }
-  let recipesFinal = {}
-
-  if(filter){
-    console.log(filter)
-    recipesFinal = recipes.filter(recipe => recipe.status === filterBy)
-  }
-  else{
-    recipesFinal = recipes
   }
 
   return (
     <div>
-      {/* <h2>{title}</h2> */}
       <TableContainer component={Paper} sx={{mt:3}}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead sx={{ backgroundColor: '#42a5f5' }}>
@@ -68,9 +52,9 @@ export default function RecipesList({filter, filterBy}) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {recipesFinal.map((row) => (
+            {recipes.map((row) => (
               <TableRow
-                key={row.title}
+                key={row.id}
                 sx={{
                   '&:last-child td, &:last-child th': { border: 0 },
                   cursor: 'pointer'
@@ -83,9 +67,7 @@ export default function RecipesList({filter, filterBy}) {
                 </TableCell>
                 <TableCell align="right">{row.type}</TableCell>
                 <TableCell align="right">
-
                     <PopupMenu recipe={row} icon={icons[row.status]} handleClick={handleStatusChange}/>
-
                   </TableCell>
                 <TableCell align="right" >
                   <Link
