@@ -8,7 +8,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 export default function AlertDialog({ open, setOpen, message, action }) {
 
-  const handleClose = () => {
+  const handleClose = (e) => {
+    e?.stopPropagation()
     setOpen(false);
   };
 
@@ -25,7 +26,7 @@ export default function AlertDialog({ open, setOpen, message, action }) {
         </DialogTitle>
         
         <DialogActions>
-          <Button onClick={() => handleClose()}>No</Button>
+          <Button onClick={handleClose}>No</Button>
           <Button onClick={() => {
             handleClose()
             action()

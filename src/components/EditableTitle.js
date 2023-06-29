@@ -74,13 +74,17 @@ export default function EditableTitle({ recipe }) {
         <Box>
             {status === 'readonly' &&
                 <Stack direction="row" alignItems="center" justifyContent="space-between" >
-
-                    <Typography component="h2" variant="h4" >
+                    <Typography sx={{maxWidth: '30rem'}} component="h2" variant="h4" >
                         {recipe.title}
                     </Typography>
-                    <IconButton onClick={handleClickEdit} color="primary">
-                        <EditIcon />
-                    </IconButton>
+                    <Stack mx={1} direction="column" alignItems="center" justifyContent="center" >
+                        <IconButton onClick={handleClickEdit} color="primary">
+                            <EditIcon />
+                        </IconButton>
+                        <Typography align="center" variant="caption">
+                            Edit Title
+                        </Typography>
+                    </Stack>
                 </Stack>
             }
             {status === 'editing' &&

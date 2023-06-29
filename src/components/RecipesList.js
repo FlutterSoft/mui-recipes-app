@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { Typography, Link } from '@mui/material';
 import { icons } from '../consts/icons'
 import PopupMenu from './PopupMenu';
+import DeleteIconComponent from './DeleteIconComponent'
 
 export default function RecipesList({recipes}) {
   const navigate = useNavigate()
@@ -62,7 +63,7 @@ export default function RecipesList({recipes}) {
                 hover={true}
                 onClick={() => navigate(`/recipes/${row.id}`)}
               >
-                <TableCell key={row.id} component="th" scope="row">
+                <TableCell component="th" scope="row">
                   {row.title}
                 </TableCell>
                 <TableCell align="right">{row.type}</TableCell>
@@ -90,7 +91,7 @@ export default function RecipesList({recipes}) {
                     <OpenInNewIcon />
                   </Link>
                 </TableCell>
-                <TableCell align="right">Icons</TableCell>
+                <TableCell align="right"><DeleteIconComponent recipe={row} /></TableCell>
               </TableRow>
             ))}
           </TableBody>

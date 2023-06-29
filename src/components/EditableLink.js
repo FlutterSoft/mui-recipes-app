@@ -4,6 +4,7 @@ import { useState, useEffect, useContext } from 'react'
 import LoadingButton from '@mui/lab/LoadingButton';
 import SaveIcon from '@mui/icons-material/Save'
 import { RecipesContext, SnackbarContext } from '../App';
+import MouseOverPopoverIcon from './MouseOverPopoverIcon';
 
 export default function EditableLink({ recipe }) {
     const [status, setStatus] = useState('readonly') // status can be: readonly - editing - saving - error
@@ -76,9 +77,11 @@ export default function EditableLink({ recipe }) {
                     <Link href={recipe.link} target="_blank" underline="hover" sx={{ ml: 0.3 }}>
                         Link to recipe
                     </Link>
-                    <IconButton onClick={handleClickEdit} color="primary">
-                        <EditIcon  />
-                    </IconButton>
+                    <Stack mx={1} direction="column" alignItems="center" justifyContent="center">
+                        <MouseOverPopoverIcon onClick={handleClickEdit} color="primary" icon={<EditIcon />} popoverText="Edit Link" />
+
+                    </Stack>
+
                 </Stack>
             }
             {status === 'editing' &&

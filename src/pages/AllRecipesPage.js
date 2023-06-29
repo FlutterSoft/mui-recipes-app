@@ -1,17 +1,18 @@
-import { Typography, Container, Box } from "@mui/material";
+import { Typography, Container, Box, IconButton, Stack } from "@mui/material";
 import RecipesList from "../components/RecipesList";
 import { useContext } from 'react'
 import { RecipesContext } from '../App'
+import AddNewRecipeComponent from "../components/AddNewRecipeComponent";
+export default function AllRecipesPage() {
 
-export default function AllRecipesPage(){
+    const { recipes } = useContext(RecipesContext)
 
-  const { recipes } = useContext(RecipesContext)
-
-    return(
+    return (
         <Container>
-            <Typography variant="h4">
+            <Typography ml={1.5} variant="h4">
                 All Recipes
             </Typography>
+            <AddNewRecipeComponent />
             <RecipesList recipes={recipes} />
         </Container>
     )

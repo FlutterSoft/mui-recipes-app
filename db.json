@@ -18,8 +18,15 @@
       "id": 3,
       "title": "Chili",
       "link": "https://www.inspiredtaste.net/51561/homemade-chili/",
-      "type": "Dinner",
+      "type": "Meal",
       "status": "unused"
+    },
+    {
+      "title": "Best Banana Cake",
+      "link": "https://sallysbakingaddiction.com/best-banana-cake/",
+      "type": "Treats",
+      "status": "unused",
+      "id": 4
     }
   ],
   "recommendations": [
@@ -39,9 +46,14 @@
       "id": 7
     },
     {
-      "body": "more peanut butter :) ",
-      "recipeId": "1",
-      "id": 9
+      "body": "3 carrots not 4",
+      "recipeId": "2",
+      "id": 10
+    },
+    {
+      "body": "Make it 3 Bananas ",
+      "recipeId": "4",
+      "id": 11
     }
   ],
   "profile": {

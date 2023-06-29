@@ -4,18 +4,21 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import AlertDialog from "./AlertDialog";
+import { useLocation } from 'react-router-dom'
 
 export default function DeleteIconComponent({ recipe }) {
     const { recipes, setRecipes } = useContext(RecipesContext)
     const { setSnackbarMessage, setSnackbarOpen } = useContext(SnackbarContext)
     const [deleteOpen, setDeleteOpen] = useState(false)
     const navigate = useNavigate()
+    const { pathname } = useLocation()
 
-    const confirmDeletion = () => {
+    const confirmDeletion = (e) => {
+        e.stopPropagation()
         setDeleteOpen(true)
     }
 
-    const handleDelete = async () => {
+    const handleDelete = async (e) => {
         try {
             const response = await fetch(`http://localhost:3004/recipes/${recipe.id}`, {
                 method: 'DELETE'
@@ -24,7 +27,12 @@ export default function DeleteIconComponent({ recipe }) {
                 const recData = await response.json()
                 const updatedRecipes = recipes.filter(r => r.id !== recipe.id)
 
-                navigate('/all-recipes')
+                if(pathname.includes('/recipes/')){
+                    navigate(-1)
+                }
+                else{
+                    navigate(pathname)
+                }
                 setRecipes(updatedRecipes)
                 setSnackbarMessage('Recipe Deleted')
                 setSnackbarOpen(true)
