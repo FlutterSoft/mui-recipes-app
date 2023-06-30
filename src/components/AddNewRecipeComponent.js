@@ -41,8 +41,7 @@ export function FormDialog({ setOpen, open, action }) {
                         value={newRecipe.recipeName}
                         onChange={(e) => setNewRecipe({...newRecipe, title: e.target.value})}
                     />
-                    <TextField
-                        autoFocus
+                    <TextField  
                         margin="dense"
                         id="recipe-link"
                         label="Recipe Link"
@@ -52,8 +51,7 @@ export function FormDialog({ setOpen, open, action }) {
                         value={newRecipe.recipeLink}
                         onChange={(e) => setNewRecipe({...newRecipe, link: e.target.value})}
                     />
-                    <TextField
-                        autoFocus
+                    <TextField 
                         margin="dense"
                         id="recipe-type"
                         select
